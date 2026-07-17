@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #f4f0ea;
+  --foreground: #201611;
+  --brown: #3b2418;
+  --brown-2: #5a3829;
+  --gold: #c9973f;
+  --ink-soft: #6f6259;
+  --line: #ddd1c4;
+  --panel: #fffdf9;
+  --panel-soft: #faf7f1;
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +18,96 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #c9973f55;
+}
+
+@layer components {
+  .page-shell {
+    @apply min-h-screen px-5 py-6 text-[#201611] md:px-8;
+    background:
+      radial-gradient(circle at top left, rgba(201, 151, 63, 0.16), transparent 34rem),
+      linear-gradient(180deg, #f8f4ee 0%, #efe8dd 100%);
+  }
+
+  .hero-panel {
+    @apply rounded-lg border p-6 text-white shadow-lg md:p-7;
+    border-color: rgba(255, 255, 255, 0.14);
+    background:
+      linear-gradient(135deg, rgba(90, 56, 41, 0.94), rgba(39, 24, 17, 0.98)),
+      linear-gradient(90deg, rgba(201, 151, 63, 0.22), transparent);
+    box-shadow: 0 18px 50px rgba(55, 35, 23, 0.18);
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-[#dec7aa];
+  }
+
+  .hero-title {
+    @apply mt-2 text-4xl font-black tracking-normal md:text-5xl;
+  }
+
+  .hero-copy {
+    @apply mt-3 max-w-3xl text-sm leading-6 text-[#f2e8da] md:text-base;
+  }
+
+  .back-link {
+    @apply inline-flex items-center rounded-md border border-white/15 bg-white/10 px-3 py-2 text-sm font-bold text-[#f6dfb5] transition hover:bg-white/15;
+  }
+
+  .panel {
+    @apply rounded-lg border border-[#ddd1c4] bg-[#fffdf9] p-5 shadow-sm;
+    box-shadow: 0 12px 32px rgba(55, 35, 23, 0.08);
+  }
+
+  .stat-card {
+    @apply rounded-lg border border-[#ddd1c4] bg-[#fffdf9] p-5 shadow-sm transition;
+    box-shadow: 0 10px 24px rgba(55, 35, 23, 0.07);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(201, 151, 63, 0.7);
+    box-shadow: 0 16px 38px rgba(55, 35, 23, 0.12);
+  }
+
+  .stat-label {
+    @apply text-xs font-bold uppercase tracking-[0.14em] text-[#7b6b60];
+  }
+
+  .stat-value {
+    @apply mt-2 text-3xl font-black text-[#26170f];
+  }
+
+  .chip-button {
+    @apply rounded-md border border-[#d8cbbb] bg-[#fffdf9] px-3 py-2 text-sm font-bold text-[#4e3629] shadow-sm transition;
+  }
+
+  .chip-button:hover {
+    @apply border-[#c9973f] bg-[#fbf4e7];
+  }
+
+  .chip-button-active {
+    @apply border-[#3b2418] bg-[#3b2418] text-white;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+
+  .table-wrap {
+    @apply overflow-x-auto rounded-lg border border-[#d8cbbb] bg-[#fffdf9] shadow-sm;
+  }
+
+  .table-head {
+    @apply bg-[#3b2418] text-white;
+  }
+
+  .table-row {
+    @apply border-t border-[#eee4d8] transition hover:bg-[#fbf4e7];
+  }
+}
 }

@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lineups:espn": "node scripts/espn-lineups.mjs",
+    "shots:espn": "node scripts/espn-shots.mjs",
+    "players:espn": "node scripts/espn-player-derived.mjs",
+    "games:espn": "node scripts/espn-game-logs.mjs"
   },
   "dependencies": {
     "next": "16.2.10",
